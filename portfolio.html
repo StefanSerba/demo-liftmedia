@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofoliu – Lift Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff;
+      --text-primary: #111111;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --border: #e0e0e0;
+      --gold: #c9a84c;
+      --font: 'Instrument Sans', Arial, sans-serif;
+      --font-display: 'Big Shoulders Display', Arial, sans-serif;
+      --nav-h: 72px;
+    }
+    html { scroll-behavior: smooth; background: #fff; }
+    body { font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; color: var(--text-primary); }
+
+    /* ─── NAV ─────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h); display: flex; align-items: center;
+      background: #ffffff;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-inner {
+      width: 100%; max-width: 1280px; margin-inline: auto;
+      padding-inline: 40px; display: flex; align-items: center; gap: 48px;
+    }
+    .logo { flex-shrink: 0; display: flex; align-items: center; }
+    .logo-img { height: 28px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: #111111; letter-spacing: 0.01em; transition: opacity 0.2s; text-decoration: none; }
+    .nav-links a:hover { opacity: 0.55; }
+    .nav-links a.active { opacity: 0.55; }
+    .nav-right { display: flex; align-items: center; gap: 24px; margin-left: auto; flex-shrink: 0; }
+    .nav-phone { font-size: 13px; font-weight: 500; color: #111111; text-decoration: none; transition: opacity 0.2s; }
+    .nav-phone:hover { opacity: 0.55; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-family: var(--font); font-weight: 600; cursor: pointer; border: none; transition: background 0.2s, opacity 0.2s; }
+    .btn-sm { padding: 10px 22px; font-size: 13px; border-radius: 999px; }
+    .btn-primary { background: #111111; color: #ffffff; }
+    .btn-primary:hover { background: #333333; }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: #111111; border-radius: 2px; transition: all 0.3s; }
+
+    /* ─── MOBILE DRAWER ───────────────────────────────────────── */
+    .nav-drawer {
+      display: none; flex-direction: column; gap: 0;
+      background: #111111; position: fixed;
+      top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      padding: 4px 24px 48px; z-index: 99; overflow-y: auto;
+    }
+    .nav-drawer.open { display: flex; }
+    .drawer-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 20px; font-weight: 500; color: rgba(255,255,255,0.75);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .drawer-link:hover { color: #fff; }
+    .drawer-link-icon { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.5; }
+    .drawer-actions { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .btn-gold { background: #D4A820; color: #111111; font-weight: 700; padding: 14px 24px; border-radius: 10px; font-size: 15px; text-align: center; text-decoration: none; }
+    .drawer-phone { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; }
+
+    /* ─── HERO BANNER ─────────────────────────────────────────── */
+    .portfolio-hero {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 64px;
+      text-align: center;
+      background: #fff;
+    }
+    .portfolio-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #111111;
+      margin-bottom: 16px;
+    }
+    .portfolio-hero h1 span { color: var(--gold); }
+    .portfolio-hero p { font-size: 16px; color: var(--text-secondary); max-width: 480px; margin-inline: auto; }
+
+    /* ─── PORTFOLIO GRID ──────────────────────────────────────── */
+    .portfolio-section { background: #fff; padding-bottom: 100px; }
+    .container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .portfolio-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #111;
+      cursor: pointer;
+    }
+    .portfolio-card video,
+    .portfolio-card img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .portfolio-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
+    .portfolio-card-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 16px; transform: translateY(8px);
+      opacity: 0; transition: all 0.3s;
+    }
+    .portfolio-card:hover .portfolio-card-info { opacity: 1; transform: translateY(0); }
+    .portfolio-card-client { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; }
+    .portfolio-card-desc { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+    .portfolio-placeholder {
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 9/16; background: #f2f2f2; border-radius: 14px;
+      color: #bbb; font-size: 13px; font-weight: 500;
+      border: 2px dashed #e0e0e0;
+    }
+
+    /* ─── STAIRCASE SEPARATOR ─────────────────────────────────── */
+    .stair-separator {
+      position: relative; height: 120px;
+      background: #ffffff; overflow: hidden; pointer-events: none;
+    }
+    .stair-separator .step {
+      position: absolute; bottom: 0; width: 25%; background: #000000;
+    }
+    .stair-separator .step-1 { left: 0%;  height: 120px; }
+    .stair-separator .step-2 { left: 25%; height: 90px; }
+    .stair-separator .step-3 { left: 50%; height: 60px; }
+    .stair-separator .step-4 { left: 75%; height: 30px; }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    .footer { background: #000000; padding-top: 72px; padding-bottom: 40px; }
+    .footer-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; margin-bottom: 60px; }
+    .footer-brand { display: flex; flex-direction: column; gap: 28px; }
+    .footer-brand .logo-img { height: 48px; width: auto; }
+    .footer-links { display: flex; gap: 72px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .footer-col a:hover { color: #ffffff; }
+    .footer-col a svg { flex-shrink: 0; opacity: 0.5; }
+    .footer-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: #111111; font-size: 14px; font-weight: 700;
+      padding: 12px 22px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; width: fit-content;
+    }
+    .footer-cta-btn:hover { opacity: 0.85; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; text-decoration: none; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .footer-inner { flex-direction: column; gap: 48px; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-inner { padding-inline: 20px; }
+      .nav-links, .nav-phone, .nav-right { display: none; }
+      .nav-burger { display: flex; }
+      .nav-drawer { display: none; }
+      .nav-drawer.open { display: flex; }
+      .container { padding-inline: 20px; }
+    }
+    @media (max-width: 640px) {
+      .container { padding-inline: 16px; }
+      .nav-inner { padding-inline: 16px; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .footer-bottom { flex-direction: column-reverse; gap: 12px; text-align: center; }
+      .footer-legal { justify-content: center; }
+      .footer-brand .logo-img { height: 40px; }
+    }
+    @media (max-width: 480px) {
+      .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo lift media.png" alt="Lift Media" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="index.html#pricing">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portofoliu</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+1" class="nav-phone">+1 (000) 000-0000</a>
+        <a href="index.html#contact" class="btn btn-sm btn-primary">Book a Call</a>
+      </div>
+      <button class="nav-burger" id="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="index.html#pricing" class="drawer-link">
+      <svg class="drawer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Services
+    </a>
+    <a href="portfolio.html" class="drawer-link">
+      <svg class="drawer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Portofoliu
+    </a>
+    <a href="index.html#pricing" class="drawer-link">
+      <svg class="drawer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Pricing
+    </a>
+    <a href="index.html#contact" class="drawer-link">
+      <svg class="drawer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Contact
+    </a>
+    <div class="drawer-actions">
+      <a href="index.html#contact" class="btn-gold">Book a Call</a>
+      <a href="tel:+1" class="drawer-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.58a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 (000) 000-0000
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <div class="portfolio-hero">
+    <div class="container">
+      <h1>Portofoliu <span>Lift Media</span></h1>
+      <p>Conținut care oprește scrollul și construiește branduri.</p>
+    </div>
+  </div>
+
+  <!-- ─── GRID ──────────────────────────────────────────────── -->
+  <section class="portfolio-section">
+    <div class="container">
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card">
+          <video src="media/video 1-Black by Doncafe.mp4" autoplay muted loop playsinline></video>
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-client">Black by Doncafe</p>
+            <p class="portfolio-card-desc">Short-form reel</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <video src="media/video 2-VG REALESTATE.mp4" autoplay muted loop playsinline></video>
+          <div class="portfolio-card-overlay"></div>
+          <div class="portfolio-card-info">
+            <p class="portfolio-card-client">VG Realestate</p>
+            <p class="portfolio-card-desc">Short-form reel</p>
+          </div>
+        </div>
+
+        <!-- Adaugă mai multe carduri mai jos. Exemplu: -->
+        <div class="portfolio-placeholder">+ Adaugă video</div>
+        <div class="portfolio-placeholder">+ Adaugă video</div>
+        <div class="portfolio-placeholder">+ Adaugă video</div>
+        <div class="portfolio-placeholder">+ Adaugă video</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STAIRCASE SEPARATOR ───────────────────────────────── -->
+  <div class="stair-separator" aria-hidden="true">
+    <div class="step step-1"></div>
+    <div class="step step-2"></div>
+    <div class="step step-3"></div>
+    <div class="step step-4"></div>
+  </div>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="logo lift media.png" alt="Lift Media" class="logo-img"></a>
+        <a href="index.html#contact" class="footer-cta-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Book a Call
+        </a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-title">Quick Links</p>
+          <ul>
+            <li><a href="index.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Home
+            </a></li>
+            <li><a href="index.html#pricing">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+              Services
+            </a></li>
+            <li><a href="portfolio.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              Portofoliu
+            </a></li>
+            <li><a href="index.html#contact">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.92z"/></svg>
+              Contact
+            </a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Socials</p>
+          <ul>
+            <li><a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              YouTube
+            </a></li>
+            <li><a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </a></li>
+            <li><a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              TikTok
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Lift Media. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('nav-burger');
+    const drawer = document.getElementById('nav-drawer');
+    burger.addEventListener('click', () => {
+      const open = !drawer.classList.contains('open');
+      drawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>
