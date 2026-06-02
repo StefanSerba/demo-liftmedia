@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À La Carte | Cliffside Cuts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d0d; --bg2: #111111; --bg3: #191919;
+      --border: rgba(255,255,255,0.07);
+      --white: #ffffff; --gray: #999999; --gray2: #555555;
+      --gold: #c9952c; --gold2: #e0a930;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(13,13,13,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo svg { width: 38px; height: 38px; }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); line-height: 1.1; }
+    .nav-logo-text span { display: block; font-size: 9px; font-weight: 400; color: var(--gray); letter-spacing: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12.5px; font-weight: 500; letter-spacing: 0.5px; color: var(--gray); text-decoration: none; transition: color 0.2s; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-ctas { display: flex; align-items: center; gap: 10px; }
+    .btn-outline { padding: 9px 20px; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); border-radius: 3px; color: var(--white); background: transparent; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--white); }
+    .btn-gold { padding: 9px 20px; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border: none; border-radius: 3px; background: var(--gold); color: #000; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--gold2); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; text-transform: uppercase; color: var(--white); text-decoration: none; letter-spacing: 2px; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mob-ctas { display: flex; gap: 12px; margin-top: 16px; }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 140px 40px 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .page-hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(48px, 7vw, 96px); font-weight: 700; text-transform: uppercase; letter-spacing: -1px; line-height: 0.95; margin-bottom: 20px; }
+    .page-hero p { font-size: 16px; color: var(--gray); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* HOW IT WORKS */
+    .how-it-works { padding: 80px 40px; border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); max-width: 900px; margin: 0 auto; border-radius: 4px; overflow: hidden; }
+    .step { background: var(--bg2); padding: 36px 32px; }
+    .step-num { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 400; color: var(--gold); letter-spacing: 1px; margin-bottom: 16px; }
+    .step h4 { font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .step p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+    /* CARDS */
+    .cards-section { padding: 80px 40px 60px; }
+    .cards-section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .cards-row-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .cards-row-bottom { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+
+    .service-card { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 9/16; cursor: pointer; background: var(--bg3); }
+    .cards-row-bottom .service-card { aspect-ratio: 16/9; }
+    .card-video-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; }
+    .service-card:hover .card-video-bg { transform: scale(1.04); }
+
+    .card-1 .card-video-bg { background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=900&fit=crop&q=80') center/cover no-repeat; }
+    .card-2 .card-video-bg { background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&h=900&fit=crop&q=80') center/cover no-repeat; }
+    .card-3 .card-video-bg { background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&h=900&fit=crop&q=80') center/cover no-repeat; }
+    .card-4 .card-video-bg { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=700&fit=crop&q=80') center/cover no-repeat; }
+    .card-5 .card-video-bg { background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=700&fit=crop&q=80') center/cover no-repeat; }
+
+    .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.08) 100%); }
+    .card-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .service-card:hover .card-play { border-color: var(--gold); background: rgba(201,149,44,0.15); }
+    .card-play svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
+    .card-mute { position: absolute; bottom: 84px; right: 16px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(0,0,0,0.4); transition: border-color 0.2s; }
+    .card-mute:hover { border-color: var(--gold); }
+    .card-mute svg { width: 12px; height: 12px; fill: white; }
+    .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 24px 20px; }
+    .card-info h3 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .card-info .price { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; color: var(--gold); margin-bottom: 10px; }
+    .card-bullets { list-style: none; margin-bottom: 16px; }
+    .card-bullets li { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.65); line-height: 1.8; }
+    .card-bullets li::before { content: '• '; color: rgba(255,255,255,0.4); }
+    .card-select { display: block; width: 100%; padding: 11px; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-align: center; background: transparent; border: 1px solid rgba(255,255,255,0.25); border-radius: 3px; color: var(--white); text-decoration: none; transition: all 0.2s; }
+    .card-select:hover { background: var(--gold); border-color: var(--gold); color: #000; }
+
+    .custom-quote { text-align: center; font-size: 14px; color: var(--gray); }
+    .custom-quote a { color: var(--gold); text-decoration: none; font-weight: 500; }
+    .custom-quote a:hover { color: var(--gold2); }
+
+    /* COMPARISON TABLE */
+    .compare { padding: 80px 40px; background: var(--bg2); border-top: 1px solid var(--border); }
+    .compare-inner { max-width: 900px; margin: 0 auto; }
+    .compare h2 { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; text-transform: uppercase; text-align: center; margin-bottom: 48px; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table thead th { padding: 16px 20px; font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); border-bottom: 1px solid var(--border); text-align: left; }
+    .compare-table thead th:first-child { color: var(--white); }
+    .compare-table tbody td { padding: 16px 20px; font-size: 13px; color: var(--gray); border-bottom: 1px solid var(--border); }
+    .compare-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .compare-table tbody td:first-child { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; color: var(--white); letter-spacing: 0.5px; }
+    .compare-table .price-cell { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; color: var(--gold); }
+    .check { color: var(--gold); font-size: 14px; }
+    .dash { color: var(--gray2); }
+
+    /* FAQ */
+    .faq { padding: 80px 40px; }
+    .faq-inner { max-width: 700px; margin: 0 auto; }
+    .faq h2 { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; text-transform: uppercase; text-align: center; margin-bottom: 48px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; gap: 16px; }
+    .faq-question span { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .faq-icon { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
+    .faq-item.open .faq-icon { background: var(--gold); border-color: var(--gold); transform: rotate(45deg); }
+    .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: var(--white); }
+    .faq-icon { position: relative; }
+    .faq-plus { font-size: 16px; color: var(--gray); line-height: 1; transition: color 0.3s; }
+    .faq-item.open .faq-plus { color: #000; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-answer p { padding-bottom: 22px; font-size: 14px; color: var(--gray); line-height: 1.75; }
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    /* CTA FOOTER BAND */
+    .cta-band { padding: 100px 40px; text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
+    .cta-band h2 { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 6vw, 80px); font-weight: 700; text-transform: uppercase; letter-spacing: -1px; line-height: 0.95; margin-bottom: 20px; }
+    .cta-band p { font-size: 15px; color: var(--gray); max-width: 380px; margin: 0 auto 40px; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-btns .btn-gold { padding: 15px 40px; font-size: 13px; }
+    .cta-btns .btn-outline { padding: 15px 40px; font-size: 13px; }
+
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64px 40px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; margin-bottom: 56px; }
+    .footer-brand p { font-size: 13px; color: var(--gray); max-width: 240px; line-height: 1.65; margin-top: 14px; }
+    .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-col h5 { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray2); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .footer-col ul a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 28px; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 12px; color: var(--gray2); }
+    .footer-socials { display: flex; gap: 22px; }
+    .footer-socials a { font-size: 12px; color: var(--gray2); text-decoration: none; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-socials a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .cards-row-top { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-ctas { display: none; }
+      .hamburger { display: flex; }
+      .page-hero, .cards-section, .compare, .faq, .cta-band { padding-left: 20px; padding-right: 20px; }
+      .how-it-works { padding: 60px 20px; }
+      .cards-row-top { grid-template-columns: 1fr; }
+      .cards-row-bottom { grid-template-columns: 1fr; }
+      .service-card { aspect-ratio: 3/2; }
+      .compare-table { font-size: 12px; }
+      .compare-table thead th, .compare-table tbody td { padding: 12px 10px; }
+      footer { padding: 52px 20px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,8 88,72 12,72" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="50,8 62,32 38,32" fill="white" opacity="0.9"/>
+        <line x1="12" y1="72" x2="88" y2="72" stroke="white" stroke-width="4"/>
+        <polygon points="28,72 50,38 72,72" fill="white" opacity="0.15"/>
+      </svg>
+      <div class="nav-logo-text">Cliffside Cuts<span>Cinematic Excellence</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="black-label.html">Black Label</a></li>
+      <li><a href="a-la-carte.html" class="active">À La Carte</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="a-la-carte.html" class="btn-outline">Order Now</a>
+      <a href="about.html#contact" class="btn-gold">Book A Call</a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="black-label.html" onclick="closeMobile()">Black Label</a>
+    <a href="a-la-carte.html" onclick="closeMobile()">À La Carte</a>
+    <div class="mob-ctas">
+      <a href="a-la-carte.html" class="btn-outline" onclick="closeMobile()">Order Now</a>
+      <a href="about.html#contact" class="btn-gold" onclick="closeMobile()">Book A Call</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="eyebrow">À La Carte</div>
+    <h1>Per-Video Editing</h1>
+    <p>Choose your style, upload your footage, get your edit.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-it-works">
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01 — Choose</div>
+        <h4>Pick Your Cut</h4>
+        <p>Browse the packages below and select the style that fits your listing or brand.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02 — Upload</div>
+        <h4>Send Your Footage</h4>
+        <p>We send you a secure upload link. Drop your raw files and any notes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03 — Receive</div>
+        <h4>Get Your Edit</h4>
+        <p>Your finished video lands in your inbox within the delivery window.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE CARDS -->
+  <section class="cards-section">
+    <div class="cards-section-inner">
+      <div class="cards-row-top">
+        <div class="service-card card-1">
+          <div class="card-video-bg"></div>
+          <div class="card-overlay"></div>
+          <div class="card-play"><svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13" fill="white"/></svg></div>
+          <div class="card-mute"><svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8z" fill="white" opacity="0.7"/></svg></div>
+          <div class="card-info">
+            <h3>Viral Cut</h3>
+            <div class="price">$250</div>
+            <ul class="card-bullets"><li>15–59 Sec</li><li>Fast, Trend-Driven</li><li>Reels, TikTok, Shorts</li></ul>
+            <a href="about.html#contact" class="card-select">Select</a>
+          </div>
+        </div>
+        <div class="service-card card-2">
+          <div class="card-video-bg"></div>
+          <div class="card-overlay"></div>
+          <div class="card-play"><svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13" fill="white"/></svg></div>
+          <div class="card-mute"><svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8z" fill="white" opacity="0.7"/></svg></div>
+          <div class="card-info">
+            <h3>Branding Cut</h3>
+            <div class="price">$175</div>
+            <ul class="card-bullets"><li>15–40 Sec</li><li>Text-Driven, Structured</li><li>Authority & Reach</li></ul>
+            <a href="about.html#contact" class="card-select">Select</a>
+          </div>
+        </div>
+        <div class="service-card card-3">
+          <div class="card-video-bg"></div>
+          <div class="card-overlay"></div>
+          <div class="card-play"><svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13" fill="white"/></svg></div>
+          <div class="card-mute"><svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8z" fill="white" opacity="0.7"/></svg></div>
+          <div class="card-info">
+            <h3>Groovy Cut</h3>
+            <div class="price">$250</div>
+            <ul class="card-bullets"><li>15–59 Sec</li><li>Creative, Rhythmic</li><li>Standout Social Posts</li></ul>
+            <a href="about.html#contact" class="card-select">Select</a>
+          </div>
+        </div>
+      </div>
+      <div class="cards-row-bottom">
+        <div class="service-card card-4">
+          <div class="card-video-bg"></div>
+          <div class="card-overlay"></div>
+          <div class="card-play"><svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13" fill="white"/></svg></div>
+          <div class="card-mute"><svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8z" fill="white" opacity="0.7"/></svg></div>
+          <div class="card-info">
+            <h3>Cinematic Cut</h3>
+            <div class="price">$250</div>
+            <ul class="card-bullets"><li>20 Sec – 2 Min</li><li>Elegant, Cinematic</li><li>MLS & Flagship Listings</li></ul>
+            <a href="about.html#contact" class="card-select">Select</a>
+          </div>
+        </div>
+        <div class="service-card card-5">
+          <div class="card-video-bg"></div>
+          <div class="card-overlay"></div>
+          <div class="card-play"><svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13" fill="white"/></svg></div>
+          <div class="card-mute"><svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8z" fill="white" opacity="0.7"/></svg></div>
+          <div class="card-info">
+            <h3>Value Cut</h3>
+            <div class="price">$125</div>
+            <ul class="card-bullets"><li>Walk-Through</li><li>Clean, Ambient</li><li>2-Day Delivery</li></ul>
+            <a href="about.html#contact" class="card-select">Select</a>
+          </div>
+        </div>
+      </div>
+      <p class="custom-quote">Need something custom? <a href="about.html#contact">Request a custom quote →</a></p>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="compare">
+    <div class="compare-inner">
+      <h2>Compare Packages</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Price</th>
+            <th>Length</th>
+            <th>Delivery</th>
+            <th>Revisions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Viral Cut</td>
+            <td class="price-cell">$250</td>
+            <td>15–59 sec</td>
+            <td>3 days</td>
+            <td><span class="check">✦</span> 2</td>
+          </tr>
+          <tr>
+            <td>Branding Cut</td>
+            <td class="price-cell">$175</td>
+            <td>15–40 sec</td>
+            <td>3 days</td>
+            <td><span class="check">✦</span> 2</td>
+          </tr>
+          <tr>
+            <td>Groovy Cut</td>
+            <td class="price-cell">$250</td>
+            <td>15–59 sec</td>
+            <td>3 days</td>
+            <td><span class="check">✦</span> 2</td>
+          </tr>
+          <tr>
+            <td>Cinematic Cut</td>
+            <td class="price-cell">$250</td>
+            <td>20 sec–2 min</td>
+            <td>4 days</td>
+            <td><span class="check">✦</span> 2</td>
+          </tr>
+          <tr>
+            <td>Value Cut</td>
+            <td class="price-cell">$125</td>
+            <td>1–3 min</td>
+            <td>2 days</td>
+            <td><span class="check">✦</span> 1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>Common Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question"><span>What footage format should I send?</span><div class="faq-icon"><span class="faq-plus">+</span></div></div>
+        <div class="faq-answer"><p>We accept all major formats — MP4, MOV, MXF, R3D. Upload via the secure link we provide after checkout. Higher resolution is always better.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>How do revisions work?</span><div class="faq-icon"><span class="faq-plus">+</span></div></div>
+        <div class="faq-answer"><p>Each package includes the number of revisions listed. Submit all your notes in a single round for the fastest turnaround.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Can I request a rush delivery?</span><div class="faq-icon"><span class="faq-plus">+</span></div></div>
+        <div class="faq-answer"><p>Yes — rush delivery is available for an additional fee depending on the package. Reach out before ordering to confirm availability.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Do you handle music licensing?</span><div class="faq-icon"><span class="faq-plus">+</span></div></div>
+        <div class="faq-answer"><p>All edits use fully licensed music cleared for commercial use on major platforms including YouTube, Instagram, and TikTok.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>What if I need more than one video?</span><div class="faq-icon"><span class="faq-plus">+</span></div></div>
+        <div class="faq-answer"><p>You can order multiple packages at once, or consider our Black Label subscription if you're producing consistently high volume.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <h2>Not Sure Which<br/>Cut To Choose?</h2>
+    <p>Book a free 15-minute call and we'll match you with the right package.</p>
+    <div class="cta-btns">
+      <a href="about.html#contact" class="btn-gold">Book A Call</a>
+      <a href="black-label.html" class="btn-outline">View Black Label</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="text-decoration:none;">
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><polygon points="50,8 88,72 12,72" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/><polygon points="50,8 62,32 38,32" fill="white" opacity="0.9"/><line x1="12" y1="72" x2="88" y2="72" stroke="white" stroke-width="4"/><polygon points="28,72 50,38 72,72" fill="white" opacity="0.15"/></svg>
+            <div class="nav-logo-text">Cliffside Cuts<span>Cinematic Excellence</span></div>
+          </a>
+          <p>Premium real estate video editing. Cinematic. Consistent. Yours.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col"><h5>Services</h5><ul><li><a href="a-la-carte.html">À La Carte</a></li><li><a href="black-label.html">Black Label</a></li></ul></div>
+          <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="about.html#contact">Contact</a></li></ul></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cliffside Cuts. All rights reserved.</p>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">LinkedIn</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Reveal on scroll
+    const cards = document.querySelectorAll('.service-card, .step, .faq-item');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    cards.forEach((el, i) => {
+      el.style.opacity = '0'; el.style.transform = 'translateY(18px)';
+      el.style.transition = `opacity 0.5s ease ${(i % 3) * 0.07}s, transform 0.5s ease ${(i % 3) * 0.07}s`;
+      io.observe(el);
+    });
+  </script>
+</body>
+</html>
