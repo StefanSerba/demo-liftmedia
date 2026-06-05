@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliffside Cuts | Cinematic Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="images/logo/logo lift media alb.png" alt="Cliffside Cuts" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown"><div class="dropdown-inner">
+          <li><a href="services-video.html">Video</a></li>
+          <li><a href="services-photo.html">Photo</a></li>
+          <li><a href="services-graphic-design.html">Graphic Design</a></li>
+          <li><a href="services-websites.html">Websites</a></li>
+          <li><a href="social-media.html">Social Media</a></li>
+        </div></ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="portfolio.html" class="btn-outline">Order Now</a>
+      <a href="about.html#contact" class="btn-gold">Book A Call</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <div class="mob-dropdown">
+      <a href="services.html" onclick="closeMobile()">Video</a>
+      <a href="services.html" onclick="closeMobile()">Photo</a>
+      <a href="services.html" onclick="closeMobile()">Graphic Design</a>
+      <a href="services.html" onclick="closeMobile()">Websites</a>
+      <a href="social-media.html" onclick="closeMobile()">Social Media</a>
+    </div>
+    <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
+    <div class="mob-ctas">
+      <a href="portfolio.html" class="btn-outline" onclick="closeMobile()">Order Now</a>
+      <a href="about.html#contact" class="btn-gold" onclick="closeMobile()">Book A Call</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Premium Real Estate Video Editing</div>
+      <h1>Your Content.Elevated.</h1>
+      <p>Professional editing for real estate media companies and agents. Cinematic quality. Consistent results.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-gold">Book A Call</a>
+        <a href="portfolio.html" class="btn-outline">PORTFOLIO</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      Scroll
+      <svg viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="12" height="15">
+        <path d="M8 1v14M2 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-eyebrow">Servicii Video</div>
+    <h2 class="section-title">Conținut Care Rămâne</h2>
+    <p class="section-sub">Filmăm, edităm, livrăm.</p>
+
+    <div class="cards-row-top">
+      <!-- VIRAL CUT -->
+      <div class="service-card card-1">
+        <div class="card-video-bg">
+          <video id="vid-1" src="videos/REEL-4-PLATINUM.mp4" loop playsinline preload="metadata" muted poster="images/REEL-4-PLATINUM.jpg"></video>
+        </div>
+        <div class="card-overlay"></div>
+        <div class="card-play" id="play-1">
+          <svg id="play-icon-1" viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+        </div>
+        <div class="card-mute" id="mute-1">
+          <svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8zm2.5 0c0 3.04-1.73 5.68-4.25 7l-.25-.43C12.32 13.23 14 10.8 14 8s-1.68-5.23-4.5-6.57l.25-.43C12.27 2.32 14 4.96 14 8z" fill="white" opacity="0.7"/></svg>
+        </div>
+        <div class="card-info">
+          <h3>Real Estate</h3>
+          <div class="price">$250</div>
+          <ul class="card-bullets">
+            <li>15–59 Sec</li>
+            <li>Fast, Trend-Driven</li>
+            <li>Reels, TikTok, Shorts</li>
+          </ul>
+          <a href="#contact" class="card-select">Select</a>
+        </div>
+      </div>
+
+      <!-- BRANDING CUT -->
+      <div class="service-card card-2">
+        <div class="card-video-bg">
+          <video id="vid-2" src="videos/REEL-2.mp4" loop playsinline preload="metadata" muted poster="images/REEL-2.jpg"></video>
+        </div>
+        <div class="card-overlay"></div>
+        <div class="card-play" id="play-2">
+          <svg id="play-icon-2" viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+        </div>
+        <div class="card-mute" id="mute-2">
+          <svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8zm2.5 0c0 3.04-1.73 5.68-4.25 7l-.25-.43C12.32 13.23 14 10.8 14 8s-1.68-5.23-4.5-6.57l.25-.43C12.27 2.32 14 4.96 14 8z" fill="white" opacity="0.7"/></svg>
+        </div>
+        <div class="card-info">
+          <h3>Branding Cut</h3>
+          <div class="price">$175</div>
+          <ul class="card-bullets">
+            <li>15–40 Sec</li>
+            <li>Text-Driven, Structured</li>
+            <li>Authority & Reach</li>
+          </ul>
+          <a href="#contact" class="card-select">Select</a>
+        </div>
+      </div>
+
+      <!-- GROOVY CUT -->
+      <div class="service-card card-3">
+        <div class="card-video-bg">
+          <video id="vid-3" src="videos/REEL-3.mp4" loop playsinline preload="metadata" muted poster="images/REEL-3.jpg"></video>
+        </div>
+        <div class="card-overlay"></div>
+        <div class="card-play" id="play-3">
+          <svg id="play-icon-3" viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+        </div>
+        <div class="card-mute" id="mute-3">
+          <svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8zm2.5 0c0 3.04-1.73 5.68-4.25 7l-.25-.43C12.32 13.23 14 10.8 14 8s-1.68-5.23-4.5-6.57l.25-.43C12.27 2.32 14 4.96 14 8z" fill="white" opacity="0.7"/></svg>
+        </div>
+        <div class="card-info">
+          <h3>Groovy Cut</h3>
+          <div class="price">$250</div>
+          <ul class="card-bullets">
+            <li>15–59 Sec</li>
+            <li>Creative, Rhythmic</li>
+            <li>Standout Social Posts</li>
+          </ul>
+          <a href="#contact" class="card-select">Select</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-row-bottom">
+      <!-- CINEMATIC CUT -->
+      <div class="service-card card-4">
+        <div class="card-video-bg"></div>
+        <div class="card-overlay"></div>
+        <div class="card-play">
+          <svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+        </div>
+        <div class="card-mute">
+          <svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8zm2.5 0c0 3.04-1.73 5.68-4.25 7l-.25-.43C12.32 13.23 14 10.8 14 8s-1.68-5.23-4.5-6.57l.25-.43C12.27 2.32 14 4.96 14 8z" fill="white" opacity="0.7"/></svg>
+        </div>
+        <div class="card-info">
+          <h3>Cinematic Cut</h3>
+          <div class="price">$250</div>
+          <ul class="card-bullets">
+            <li>20 Sec – 2 Min</li>
+            <li>Elegant, Cinematic</li>
+            <li>MLS & Flagship Listings</li>
+          </ul>
+          <a href="#contact" class="card-select">Select</a>
+        </div>
+      </div>
+
+      <!-- VALUE CUT -->
+      <div class="service-card card-5">
+        <div class="card-video-bg"></div>
+        <div class="card-overlay"></div>
+        <div class="card-play">
+          <svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+        </div>
+        <div class="card-mute">
+          <svg viewBox="0 0 16 16"><path d="M8 2L4 6H1v4h3l4 4V2zM11.5 8c0-1.77-1-3.29-2.5-4.03v8.05C10.5 11.29 11.5 9.77 11.5 8zm2.5 0c0 3.04-1.73 5.68-4.25 7l-.25-.43C12.32 13.23 14 10.8 14 8s-1.68-5.23-4.5-6.57l.25-.43C12.27 2.32 14 4.96 14 8z" fill="white" opacity="0.7"/></svg>
+        </div>
+        <div class="card-info">
+          <h3>Value Cut</h3>
+          <div class="price">$125</div>
+          <ul class="card-bullets">
+            <li>Walk-Through</li>
+            <li>Clean, Ambient</li>
+            <li>2-Day Delivery</li>
+          </ul>
+          <a href="#contact" class="card-select">Select</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="custom-quote">Need something custom? <a href="#contact">Request a custom quote →</a></p>
+  </section>
+
+  <!-- BLACK LABEL -->
+  <section class="black-label" id="blacklabel">
+    <div class="bl-container">
+      <div class="section-eyebrow">The Black Label Division</div>
+      <h2 class="section-title">Your Own Dedicated Editor</h2>
+      <p class="section-sub">A dedicated editor, fully trained on your brand. Integrated into your workflow. Consistent quality at scale.</p>
+
+      <div class="bl-hero-img">
+        <div class="bl-play-wrap">
+          <div class="bl-play-btn">
+            <svg viewBox="0 0 12 14"><polygon points="2,1 11,7 2,13"/></svg>
+          </div>
+          <span class="bl-play-label">Watch Overview</span>
+        </div>
+      </div>
+
+      <div class="bl-features-row">
+        <div class="bl-feat">
+          <div class="bl-feat-num">01</div>
+          <h4>Dedicated Editor</h4>
+          <p>Your own editor, embedded in your team. They learn your style, your standards, your workflow.</p>
+        </div>
+        <div class="bl-feat">
+          <div class="bl-feat-num">02</div>
+          <h4>Pro Infrastructure</h4>
+          <p>MacBook workstation, Final Cut plugin ecosystem, internal templates and systems.</p>
+        </div>
+        <div class="bl-feat">
+          <div class="bl-feat-num">03</div>
+          <h4>Continuous Training</h4>
+          <p>Two structured sessions per week. Your editor doesn't plateau, they keep getting sharper.</p>
+        </div>
+        <div class="bl-feat">
+          <div class="bl-feat-num">04</div>
+          <h4>Creative Oversight</h4>
+          <p>Senior leadership reviews every placement. Direct creative direction and quality control.</p>
+        </div>
+        <div class="bl-feat">
+          <div class="bl-feat-num">05</div>
+          <h4>Built For Scale</h4>
+          <p>Reserved for companies handling consistent volume and premium work. Reliable support at scale.</p>
+        </div>
+      </div>
+
+      <div class="bl-ctas">
+        <a href="#contact" class="btn-gold">Book A Call →</a>
+        <a href="#services" class="bl-link">Or Browse Per-Video Packages →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="about-section">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-eyebrow">What Our Clients Say</div>
+      <h2 class="section-title">Words From The Field.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-icon">"</div>
+          <p class="testimonial-text">Cliffside created a style that many try to imitate, but none can match. Truly the best in the business.</p>
+          <div class="testimonial-author"><strong>Mikołaj Kantor</strong>Resonate Estate Media</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-icon">"</div>
+          <p class="testimonial-text">The solution we all needed. Every edit comes back cleaner than what I even imagined when I sent the footage.</p>
+          <div class="testimonial-author"><strong>James T.</strong>JT Visuals</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-icon">"</div>
+          <p class="testimonial-text">The difference between Cliffside Cuts and other editing agencies is their relentless pursuit of improvement. They are built, trained, and operated differently.</p>
+          <div class="testimonial-author"><strong>Derek W.</strong>Known Productions</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-icon">"</div>
+          <p class="testimonial-text">Cliffside Cuts has been nothing short of excellent. The video editing quality is superior to anyone else I've worked with, and I exclusively use them for all my content.</p>
+          <div class="testimonial-author"><strong>Amanda S.</strong>Cohen & Co. Media</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="contact">
+    <h2>Ready To Elevate<br/>Your Content?</h2>
+    <p>Book a quick call and we'll find the right plan for your volume and vision.</p>
+    <div class="cta-btns">
+      <a href="mailto:hello@cliffsidecuts.com" class="btn-gold">Book A Call</a>
+      <a href="#services" class="btn-outline">View Pricing</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="text-decoration:none;">
+            <img src="images/logo/logo lift media alb.png" alt="Cliffside Cuts" class="nav-logo-img">
+          </a>
+          <p>Premium real estate video editing. Cinematic. Consistent. Yours.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="social-media.html">Social Media</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="about.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cliffside Cuts. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

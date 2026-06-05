@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media | Cliffside Cuts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/social-media.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo/logo lift media alb.png" alt="Cliffside Cuts" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown"><div class="dropdown-inner">
+          <li><a href="services-video.html">Video</a></li>
+          <li><a href="services-photo.html">Photo</a></li>
+          <li><a href="services-graphic-design.html">Graphic Design</a></li>
+          <li><a href="services-websites.html">Websites</a></li>
+          <li><a href="social-media.html" class="active">Social Media</a></li>
+        </div></ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="portfolio.html" class="btn-outline">Order Now</a>
+      <a href="about.html#contact" class="btn-gold">Book A Call</a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <div class="mob-dropdown">
+      <a href="services.html" onclick="closeMobile()">Video</a>
+      <a href="services.html" onclick="closeMobile()">Photo</a>
+      <a href="services.html" onclick="closeMobile()">Graphic Design</a>
+      <a href="services.html" onclick="closeMobile()">Websites</a>
+      <a href="social-media.html" onclick="closeMobile()">Social Media</a>
+    </div>
+    <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
+    <div class="mob-ctas">
+      <a href="portfolio.html" class="btn-outline" onclick="closeMobile()">Order Now</a>
+      <a href="about.html#contact" class="btn-gold" onclick="closeMobile()">Book A Call</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="eyebrow">Social Media Management</div>
+      <h1>Conținut Consistent<br/>Care Construiește.</h1>
+      <p>Filmăm, edităm și postăm conținut video care construiește recunoaștere, încredere și rezultate reale pentru brandul tău.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn-gold">Vezi Pachetele</a>
+        <a href="about.html#contact" class="btn-outline">Book A Call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT SHOWCASE -->
+  <section class="showcase">
+    <div class="showcase-inner">
+      <div class="section-eyebrow">Rezultate Reale</div>
+      <h2 class="section-title">Clienții Noștri</h2>
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-handle">@resonate.media</div>
+          <div class="client-followers">94.7K Urmăritori</div>
+          <div class="client-niche">Imobiliare</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@jtvisuals</div>
+          <div class="client-followers">47.2K Urmăritori</div>
+          <div class="client-niche">Media & Film</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@knownproductions</div>
+          <div class="client-followers">38.5K Urmăritori</div>
+          <div class="client-niche">Producție Video</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@cohen.media</div>
+          <div class="client-followers">29.1K Urmăritori</div>
+          <div class="client-niche">Imobiliare</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@studio910</div>
+          <div class="client-followers">21.4K Urmăritori</div>
+          <div class="client-niche">Studio Foto-Video</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@apexrealty</div>
+          <div class="client-followers">18.9K Urmăritori</div>
+          <div class="client-niche">Imobiliare</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@skylinefilms</div>
+          <div class="client-followers">15.3K Urmăritori</div>
+          <div class="client-niche">Cinematografie</div>
+        </div>
+        <div class="client-card">
+          <div class="client-handle">@prismgroup</div>
+          <div class="client-followers">11.8K Urmăritori</div>
+          <div class="client-niche">Branding</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM STATEMENT -->
+  <section class="problem">
+    <div class="problem-inner">
+      <div class="eyebrow" style="text-align:center;margin-bottom:20px;">Înțelegem Provocarea</div>
+      <h2>Construit Pentru Cel Care<br/>S-a Săturat Să Jongleze.</h2>
+      <p>Știi că ai nevoie de conținut constant pe social media. Dar filmatul, editatul, postatul și răspunsul la comentarii consumă timp pe care nu îl ai. Noi ne ocupăm de tot — tu te concentrezi pe business.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-inner">
+      <div class="section-eyebrow">De Ce Cliffside</div>
+      <h2 class="section-title">Ce Primești</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">▲</div>
+          <h4>Postare Strategică</h4>
+          <p>Conținut planificat și postat consistent, optimizat pentru algoritmul fiecărei platforme.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">◈</div>
+          <h4>Aliniat Brandului</h4>
+          <p>Fiecare video, caption și story reflectă identitatea vizuală și vocea brandului tău.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">✦</div>
+          <h4>Flux de Aprobare Clar</h4>
+          <p>Revizuiești conținutul înainte de publicare. Tu ai controlul final, noi facem munca.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">⬡</div>
+          <h4>Zero Presiune</h4>
+          <p>Fără deadline-uri ratate, fără luni fără postări. Conținut livrat constant, în fiecare săptămână.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="principles">
+    <div class="principles-inner">
+      <div class="section-eyebrow">Filosofia Noastră</div>
+      <h2 class="section-title">Cele 4 Principii</h2>
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle-num">01 — Principiu</div>
+          <h3>Elevat</h3>
+          <p>Nu facem conținut mediocru. Fiecare video este filmat și editat la standardul cinematic care ne definește. Calitatea nu este negociabilă — indiferent de pachet.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-num">02 — Principiu</div>
+          <h3>Intenționat</h3>
+          <p>Fiecare postare are un scop. Construim o strategie lunară care urmărește creșterea, recunoașterea brandului și generarea de leaduri — nu postăm de dragul de a posta.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-num">03 — Principiu</div>
+          <h3>Distinct</h3>
+          <p>Brandul tău nu trebuie să arate ca toți ceilalți. Creăm un stil vizual unic, construit în jurul tău, care te face imediat recognoscibil în feed.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-num">04 — Principiu</div>
+          <h3>Consistent</h3>
+          <p>Algoritmii recompensează consistența. Sistemele noastre garantează că postezi regulat, fără pauze, fără scuze — chiar și în săptămânile tale mai aglomerate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="section-eyebrow">Pachete</div>
+      <h2 class="section-title">Alege Planul Tău</h2>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-tag">Starter</div>
+          <div class="pricing-name">Essential</div>
+          <div class="pricing-price">€800<span>/lună</span></div>
+          <div class="pricing-desc">Perfect pentru brandurile care vor să înceapă serios pe social media.</div>
+          <ul class="pricing-features">
+            <li>8 videoclipuri / lună</li>
+            <li>1 platformă (Instagram sau TikTok)</li>
+            <li>Editare profesională</li>
+            <li>Captions & hashtags incluse</li>
+            <li>1 rundă de revizuire / video</li>
+            <li>Raport lunar de performanță</li>
+          </ul>
+          <a href="about.html#contact" class="pricing-cta">Începe Acum →</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-tag">Cel Mai Popular</div>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">€1,500<span>/lună</span></div>
+          <div class="pricing-desc">Pentru brandurile serioase care vor creștere consistentă pe mai multe platforme.</div>
+          <ul class="pricing-features">
+            <li>16 videoclipuri / lună</li>
+            <li>2 platforme (Instagram + TikTok)</li>
+            <li>Filmare inclusă (2 sesiuni/lună)</li>
+            <li>Editare cinematică completă</li>
+            <li>Stories & Reels optimizate</li>
+            <li>Revizuiri nelimitate</li>
+            <li>Call lunar de strategie</li>
+            <li>Acces Slack direct</li>
+          </ul>
+          <a href="about.html#contact" class="pricing-cta">Începe Acum →</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-tag">Premium</div>
+          <div class="pricing-name">Elite</div>
+          <div class="pricing-price">€2,800<span>/lună</span></div>
+          <div class="pricing-desc">Management complet pentru brandurile care vor dominanță totală pe social media.</div>
+          <ul class="pricing-features">
+            <li>30+ videoclipuri / lună</li>
+            <li>Toate platformele majore</li>
+            <li>Filmare nelimitată</li>
+            <li>Editor dedicat brandului tău</li>
+            <li>Strategie completă de conținut</li>
+            <li>Revizuiri nelimitate</li>
+            <li>Calls săptămânale de strategie</li>
+            <li>Raportare & analiză completă</li>
+            <li>Prioritate maximă la livrare</li>
+          </ul>
+          <a href="about.html#contact" class="pricing-cta">Începe Acum →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ONBOARDING -->
+  <section class="onboarding">
+    <div class="onboarding-inner">
+      <div class="section-eyebrow">Cum Începem</div>
+      <h2 class="section-title">De La Call La Primul Video</h2>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-num">01 — Discovery</div>
+          <h4>Call De Cunoaștere</h4>
+          <p>30 de minute pentru a înțelege brandul tău, obiectivele și publicul țintă. Îți prezentăm exact cum funcționează procesul nostru.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02 — Setup</div>
+          <h4>Aliniere Brand</h4>
+          <p>Construim ghidul tău de stil vizual, setăm fluxul de lucru și planificăm calendarul editorial pentru prima lună.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03 — Launch</div>
+          <h4>Primul Conținut Live</h4>
+          <p>În maxim 7 zile de la onboarding, primul tău video este filmat, editat și gata de publicare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="workflow">
+    <div class="workflow-inner">
+      <div class="section-eyebrow">Procesul Lunar</div>
+      <h2 class="section-title">Cum Funcționează Lunar</h2>
+      <div class="workflow-grid">
+        <div class="workflow-week">
+          <div class="week-label">Săptămâna 1</div>
+          <h4>Planificare</h4>
+          <p>Stabilim calendarul de conținut pentru luna în curs. Tu aprobi temele și direcția creativă.</p>
+        </div>
+        <div class="workflow-week">
+          <div class="week-label">Săptămâna 2</div>
+          <h4>Filmare</h4>
+          <p>Sesiunile de filmare au loc conform planului. Filmăm tot ce este necesar pentru luna în curs.</p>
+        </div>
+        <div class="workflow-week">
+          <div class="week-label">Săptămâna 3</div>
+          <h4>Editare & Aprobare</h4>
+          <p>Editezi videoclipurile și le trimiți spre aprobare. Tu revizuiești și dai acordul final.</p>
+        </div>
+        <div class="workflow-week">
+          <div class="week-label">Săptămâna 4</div>
+          <h4>Publicare & Analiză</h4>
+          <p>Postăm conform calendarului și analizăm performanța pentru a optimiza luna următoare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="eyebrow" style="margin-bottom:20px;">Gata Să Crești?</div>
+    <h2>Hai Să Construim<br/>Ceva Mare.</h2>
+    <p>Locurile sunt limitate. Rezervă un call și vedem dacă suntem potrivitul pentru tine.</p>
+    <div class="cta-btns">
+      <a href="about.html#contact" class="btn-gold">Book A Call →</a>
+      <a href="#pricing" class="btn-outline">Vezi Pachetele</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="text-decoration:none;">
+            <img src="images/logo/logo lift media alb.png" alt="Cliffside Cuts" class="nav-logo-img">
+          </a>
+          <p>Premium real estate video editing. Cinematic. Consistent. Yours.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col"><h5>Services</h5><ul><li><a href="portfolio.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="social-media.html">Social Media</a></li></ul></div>
+          <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="about.html#contact">Contact</a></li></ul></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cliffside Cuts. All rights reserved.</p>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">LinkedIn</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/social-media.js"></script>
+</body>
+</html>
